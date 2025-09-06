@@ -12,21 +12,22 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "apartamento")
+@Table(name = "visitantes")
 
-public class Apartamento {
+public class Visitantes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private long idApartamento;
+    private Long idVisitantes;
 
+    @Column(name = "nombre", nullable = false, length = 100)
+    private String nombre;
 
-    @Column(name = "numero_apartamento", nullable = false, unique = true, length = 50)
-    private String numeroApartamento;
-    
+    @Column(name = "telefono", length = 15)
+    private String telefono;
 
     @ManyToOne
-    @JoinColumn(name = "propietario_id", nullable = false)
-    private Propietarios propietario;
-
+    @JoinColumn(name = "idApartamento", nullable = false)
+    private Apartamento apartamento;
 }

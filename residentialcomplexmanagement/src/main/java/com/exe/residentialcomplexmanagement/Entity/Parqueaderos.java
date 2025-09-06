@@ -10,23 +10,24 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "apartamento")
+@Data
+@Table(name = "parqueaderos")
 
-public class Apartamento {
+public class Parqueaderos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private long idApartamento;
+    private Long idParqueaderos;
 
+    @Column(name = "numero", nullable = false, length = 10)
+    private String numero;
 
-    @Column(name = "numero_apartamento", nullable = false, unique = true, length = 50)
-    private String numeroApartamento;
-    
+    @Column(name = "tipo", length = 50)
+    private String tipo;
 
     @ManyToOne
-    @JoinColumn(name = "propietario_id", nullable = false)
-    private Propietarios propietario;
-
+    @JoinColumn(name = "idApartamento", nullable = false)
+    private Apartamento apartamento;
 }

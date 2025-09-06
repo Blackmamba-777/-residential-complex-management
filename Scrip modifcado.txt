@@ -1,0 +1,115 @@
+-- 1. Crear tipos ENUM para los estados y valores predefinidos
+
+-- Estado de los apartamentos
+CREATE TYPE estado_apartamento AS ENUM ('DISPONIBLE', 'ARRENDADO', 'VENDIDO', 'REMODELACION');
+
+-- Motivo de visita de los visitantes
+CREATE TYPE motivo_visita AS ENUM ('REUNION', 'ENTREGA', 'REPARACION', 'OTRO');
+
+-- Estado de los parqueaderos
+CREATE TYPE estado_parqueadero AS ENUM ('DISPONIBLE', 'OCUPADO', 'RESERVADO');
+
+-- Estado de la correspondencia
+CREATE TYPE estado_correspondencia AS ENUM ('PENDIENTE', 'ENTREGADA', 'DEVUELTA');
+
+-- Estado de las solicitudes
+CREATE TYPE estado_solicitud AS ENUM ('PENDIENTE', 'EN_PROCESO', 'FINALIZADA', 'RECHAZADA');
+
+-- Prioridad de las solicitudes
+CREATE TYPE prioridad_solicitud AS ENUM ('BAJA', 'MEDIA', 'ALTA');
+
+-- Turno del personal de seguridad
+CREATE TYPE turno_seguridad AS ENUM ('MAÑANA', 'TARDE', 'NOCHE');
+
+
+
+-- 2. Crear tablas con los tipos ENUM
+
+-- Tabla de propietarios
+CREATE TABLE propietarios (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  nombre VARCHAR(255) NOT NULL,
+  telefono VARCHAR(15),
+  email VARCHAR(255)
+);
+
+-- Tabla de apartamentos
+CREATE TABLE apartamentos (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  numero VARCHAR(10) NOT NULL,
+  
+  estado estado_apartamento,  -- Usar ENUM para el estado del apartamento
+  propietario_id INT,
+  fecha_registro DATE,
+  FOREIGN KEY (propietario_id) REFERENCES propietarios(id)
+);
+
+-- Tabla de residentes
+CREATE TABLE residentes (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  nombre VARCHAR(255) NOT NULL,
+  telefono VARCHAR(15),
+  email VARCHAR(255),
+  apartamento_id INT,
+  FOREIGN KEY (apartamento_id) REFERENCES apartamentos(id)
+);
+
+-- Tabla de visitantes
+CREATE TABLE visitantes (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  nombre VARCHAR(255) NOT NULL,
+  telefono VARCHAR(15),
+  motivo_visita motivo_visita,  -- Usar ENUM para el motivo de la visita
+  apartamento_id INT,
+  fecha_visita DATE,
+  FOREIGN KEY (apartamento_id) REFERENCES apartamentos(id)
+);
+
+-- Tabla de parqueaderos
+CREATE TABLE parqueaderos (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  numero VARCHAR(10) NOT NULL,
+  tipo VARCHAR(50),
+  estado estado_parqueadero,  -- Usar ENUM para el estado del parqueadero
+  apartamento_id INT,
+  FOREIGN KEY (apartamento_id) REFERENCES apartamentos(id)
+);
+
+-- Tabla de correspondencia
+CREATE TABLE correspondencia (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  tipo VARCHAR(255) NOT NULL,
+  estado estado_correspondencia,  -- Usar ENUM para el estado de la correspondencia
+  apartamento_id INT,
+  fecha_recepcion DATE,
+  FOREIGN KEY (apartamento_id) REFERENCES apartamentos(id)
+);
+
+-- Tabla de áreas comunes
+CREATE TABLE areas_comunes (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  nombre VARCHAR(255) NOT NULL,
+  capacidad INT,
+  horario VARCHAR(100)
+);
+
+-- Tabla de solicitudes
+CREATE TABLE solicitudes (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  tipo VARCHAR(255) NOT NULL,
+  descripcion VARCHAR(255),
+  fecha DATE,
+  estado estado_solicitud,  -- Usar ENUM para el estado de la solicitud
+  prioridad prioridad_solicitud,  -- Usar ENUM para la prioridad de la solicitud
+  apartamento_id INT,
+  FOREIGN KEY (apartamento_id) REFERENCES apartamentos(id)
+);
+
+-- Tabla de personal de seguridad
+CREATE TABLE personal_seguridad (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  nombre VARCHAR(255) NOT NULL,
+  telefono VARCHAR(15),
+  turno turno_seguridad  -- Usar ENUM para el turno del personal de seguridad
+);
+
