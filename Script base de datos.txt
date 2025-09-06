@@ -6,6 +6,7 @@ create table propietarios (
   telefono text,
   email text
 );
+ok
 
 create table aptos (
   id bigint primary key generated always as identity,
@@ -16,6 +17,7 @@ create table aptos (
   area numeric(10, 2),
   foreign key (propietario_id) references propietarios (id)
 );
+ok
 
 create table residentes (
   id bigint primary key generated always as identity,
