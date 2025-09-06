@@ -1,0 +1,77 @@
+-- Migrations will appear here as you chat with AI
+
+create table propietarios (
+  id bigint primary key generated always as identity,
+  nombre text not null,
+  telefono text,
+  email text
+);
+
+create table aptos (
+  id bigint primary key generated always as identity,
+  numero text not null,
+  torre text not null,
+  piso int not null,
+  propietario_id bigint,
+  area numeric(10, 2),
+  foreign key (propietario_id) references propietarios (id)
+);
+
+create table residentes (
+  id bigint primary key generated always as identity,
+  nombre text not null,
+  telefono text,
+  email text,
+  apartamento_id bigint,
+  foreign key (apartamento_id) references aptos (id)
+);
+
+create table visitantes (
+  id bigint primary key generated always as identity,
+  nombre text not null,
+  telefono text,
+  motivo_visita text,
+  apartamento_id bigint,
+  fecha_visita date,
+  foreign key (apartamento_id) references aptos (id)
+);
+
+create table parqueaderos (
+  id bigint primary key generated always as identity,
+  numero text not null,
+  tipo text,
+  apartamento_id bigint,
+  foreign key (apartamento_id) references aptos (id)
+);
+
+create table correspondencia (
+  id bigint primary key generated always as identity,
+  tipo text not null,
+  fecha_recepcion date,
+  apartamento_id bigint,
+  foreign key (apartamento_id) references aptos (id)
+);
+
+create table areas_comunes (
+  id bigint primary key generated always as identity,
+  nombre text not null,
+  capacidad int,
+  horario text
+);
+
+create table solicitudes (
+  id bigint primary key generated always as identity,
+  tipo text not null,
+  descripcion text,
+  fecha date,
+  estado text,
+  apartamento_id bigint,
+  foreign key (apartamento_id) references aptos (id)
+);
+
+create table personal_seguridad (
+  id bigint primary key generated always as identity,
+  nombre text not null,
+  turno text,
+  telefono text
+);
