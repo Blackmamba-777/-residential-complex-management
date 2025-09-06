@@ -19,9 +19,13 @@ public class Residentes {
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private Long idResidente;
 
-
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
+
+    @Column(name = "apellido", nullable = false, length = 100)
     private String apellido;
+
+    @Column(name = "email", nullable = false, unique = true, updatable = true, length = 50)
     private String email;
 
     @ManyToOne

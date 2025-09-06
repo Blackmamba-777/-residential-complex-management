@@ -10,16 +10,19 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "apartamento")
-
-public class Apartamento {
+@Table(name = "propietarios")
+public class Propietarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private long idApartamento;
+    private long idPropietario;
 
+    @Column(name = "nombre", nullable = false, unique = false, length = 100)
+    private String nombre;
 
-    @Column(name = "numero_apartamento", nullable = false, unique = true, length = 50)
-    private String numeroApartamento;
-    
+    @Column(name = "telefono", nullable = false, unique = true, updatable = true, length = 15)
+    private String telefono;
+
+    @Column(name = "email", nullable = false, unique = true, updatable = true, length = 100)
+    private String email;
 }
