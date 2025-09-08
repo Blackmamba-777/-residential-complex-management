@@ -1,42 +1,39 @@
 package com.exe.residentialcomplexmanagement.Entity;
 
 import com.exe.residentialcomplexmanagement.Enum.EstadoCorrespondencia;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "correspondencias")
 @Data
-@Table(name = "correspondencia")
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class Correspondencia {
+
+    // Identificador único de la correspondencia
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private Long idCorrespondencia;
 
+    // Tipo de correspondencia (ej: carta, paquete)
     @Column(name = "tipo",nullable = false, length = 100)
     private String tipo;
 
-    @Column(name = "fecha_recepcion",nullable = false)
+    // Fecha en la que se recibió la correspondencia
+    @Column(name = "fecha_recepcion", nullable = false)
     private java.time.LocalDate fechaRecepcion;
 
+    // Estado de la correspondencia (ej: ENTREGADO, PENDIENTE)
     @Enumerated(EnumType.STRING)
     private EstadoCorrespondencia estado;
 
-    @ManyToOne
+    // Relación muchos a uno con Apartamento (a qué apartamento va dirigida)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idApartamento", nullable = false)
     private Apartamento apartamento;
-
 
 }

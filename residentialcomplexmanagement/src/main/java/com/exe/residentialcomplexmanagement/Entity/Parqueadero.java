@@ -1,40 +1,38 @@
 package com.exe.residentialcomplexmanagement.Entity;
 
 import com.exe.residentialcomplexmanagement.Enum.EstadoParqueadero;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @Table(name = "parqueaderos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Parqueadero {
 
-public class Parqueaderos {
+    // Identificador único del parqueadero
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private Long idParqueaderos;
+    private Long idParqueadero;
 
+    // Número del parqueadero (ej: P1, P2)
     @Column(name = "numero", nullable = false, length = 10)
     private String numero;
 
-    @Column(name = "tipo", length = 50)
+    // Tipo de parqueadero (ej: carro, moto)
+    @Column(name = "tipo", nullable = false, length = 50)
     private String tipo;
 
+    // Estado del parqueadero (ej: OCUPADO, LIBRE)
     @Enumerated(EnumType.STRING)
     private EstadoParqueadero estado;
 
-    @ManyToOne
+    // Relación muchos a uno con Apartamento (a qué apartamento pertenece)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idApartamento", nullable = false)
     private Apartamento apartamento;
 }
