@@ -1,7 +1,11 @@
 package com.exe.residentialcomplexmanagement.Entity;
 
+import com.exe.residentialcomplexmanagement.Enum.MotivoVisita;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +31,11 @@ public class Visitantes {
     @Column(name = "telefono", length = 15)
     private String telefono;
 
+    @Enumerated(EnumType.STRING)
+    private MotivoVisita motivoVisita;
+
     @ManyToOne
     @JoinColumn(name = "idApartamento", nullable = false)
     private Apartamento apartamento;
+
 }

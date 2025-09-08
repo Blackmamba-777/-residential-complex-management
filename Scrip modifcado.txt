@@ -37,7 +37,6 @@ CREATE TABLE propietarios (
 CREATE TABLE apartamentos (
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   numero VARCHAR(10) NOT NULL,
-  
   estado estado_apartamento,  -- Usar ENUM para el estado del apartamento
   propietario_id INT,
   fecha_registro DATE,
