@@ -17,6 +17,7 @@ import lombok.Data;
 public class Apartamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private long idApartamento;
 
@@ -26,7 +27,7 @@ public class Apartamento {
     
 
     @ManyToOne
-    @JoinColumn(name = "propietario_id", nullable = false)
+    @JoinColumn(name = "idPropietario", nullable = false)
     private Propietarios propietario;
 
 }

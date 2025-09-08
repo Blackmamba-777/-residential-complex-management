@@ -14,6 +14,7 @@ import lombok.Data;
 public class Propietarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private long idPropietario;
 
@@ -25,4 +26,5 @@ public class Propietarios {
 
     @Column(name = "email", nullable = false, unique = true, updatable = true, length = 100)
     private String email;
+
 }
