@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 
-public class Solicitudes {
+public class SolicitudDTO {
 
     private Long id;
 
@@ -14,5 +14,5 @@ public class Solicitudes {
 
     private java.time.LocalDate fecha;
 
-    private Apartamento apartamento;
+    private ApartamentoDTO apartamento;
 }

@@ -3,12 +3,13 @@ package com.exe.residentialcomplexmanagement.DTO;
 import lombok.Data;
 
 @Data
+public class PropietarioDTO {
 
-public class PersonalSeguridad {
-
-    private Long id;
+    private long id;
 
     private String nombre;
 
     private String telefono;
+
+    private String email;
 }

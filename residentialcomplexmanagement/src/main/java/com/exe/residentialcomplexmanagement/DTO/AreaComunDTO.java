@@ -3,7 +3,7 @@ package com.exe.residentialcomplexmanagement.DTO;
 import lombok.Data;
 
 @Data
-public class AreasComunes {
+public class AreaComunDTO {
 
     private Long id;
 

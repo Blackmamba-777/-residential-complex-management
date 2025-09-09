@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 
-public class Apartamento {
+public class ApartamentoDTO {
 
     private long id;
 
     private String numeroApartamento;
 
-    private Propietarios propietario;
+    private PropietarioDTO propietario;
 }

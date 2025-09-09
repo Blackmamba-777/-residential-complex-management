@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 
-public class Parqueaderos {
+public class ParqueaderoDTO {
 
     private Long id;
 
@@ -12,5 +12,5 @@ public class Parqueaderos {
 
     private String tipo;
 
-    private Apartamento apartamento;
+    private ApartamentoDTO apartamento;
 }

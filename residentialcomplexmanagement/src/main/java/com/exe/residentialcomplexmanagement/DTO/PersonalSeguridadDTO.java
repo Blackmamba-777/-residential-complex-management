@@ -4,13 +4,11 @@ import lombok.Data;
 
 @Data
 
-public class Visitantes {
+public class PersonalSeguridadDTO {
 
     private Long id;
 
     private String nombre;
 
     private String telefono;
-
-    private Apartamento apartamento;
 }
