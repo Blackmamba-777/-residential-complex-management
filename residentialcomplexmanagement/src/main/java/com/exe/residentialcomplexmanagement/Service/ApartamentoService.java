@@ -24,7 +24,7 @@ public class ApartamentoService {
 
     //Metodo para mostrar todos los apartamentos
     List<ApartamentoDTO> getAllApartamentos() {
-        return null;
+        return new ArrayList<>();
     }
 
     //Metodo para crear un nuevo apartamento
