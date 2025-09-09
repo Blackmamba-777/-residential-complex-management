@@ -21,15 +21,15 @@ public class Propietario {
     private long idPropietario;
 
     // Nombre completo del propietario
-    @Column(name = "Nombre", nullable = false, length = 100)
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
     // Teléfono de contacto del propietario
-    @Column(name = "Telefono", nullable = false,  updatable = true, length = 15)
+    @Column(name = "telefono", nullable = false,  updatable = true, length = 15)
     private String telefono;
 
     // Correo electrónico del propietario
-    @Column(name = "Email", nullable = false, unique = true, updatable = true, length = 255)
+    @Column(name = "email", nullable = false, unique = true, updatable = true, length = 255)
     private String email;
 
     // Relación uno a muchos con Apartamento (un propietario puede tener varios apartamentos)

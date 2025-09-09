@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Residente {
+
     // Identificador único del residente
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
