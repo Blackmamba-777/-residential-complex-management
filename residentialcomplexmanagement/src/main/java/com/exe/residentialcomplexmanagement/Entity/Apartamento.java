@@ -23,12 +23,12 @@ public class Apartamento {
     private long idApartamento;
 
     // Número identificador del apartamento (ej: 101, 202A)
-    @Column(name = "Numero_apartamento", nullable = false, unique = true, length = 50)
+    @Column(name = "numero_apartamento", nullable = false, unique = true, length = 50)
     private String numeroApartamento;
     
     // Estado actual del apartamento (ej: OCUPADO, DISPONIBLE)
     @Enumerated(EnumType.STRING)
-    @Column(name= "Estado_apartanmento", nullable = false)
+    @Column(name= "estado_apartanmento", nullable = false)
     private EstadoApartamento estado;
 
     // Fecha de registro del apartamento en el sistema

@@ -2,6 +2,8 @@ package com.exe.residentialcomplexmanagement.DTO;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,8 +14,7 @@ public class ApartamentoDTO {
     private long id;
     private String numeroApartamento;
     private String  estado;
-
-    // private PropietarioDTO propietario;
-
+    private PropietarioDTO propietario;
+    private List<ResidenteDTO> residentes;
 
 }
