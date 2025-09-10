@@ -1,8 +1,7 @@
 package com.exe.residentialcomplexmanagement.Service;
 
-import org.springframework.stereotype.Service;
+import com.exe.residentialcomplexmanagement.DTO.AreaComunDTO;
 
-@Service
-public class AreaComunService {
+public interface AreaComunService {
 
 }
