@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "correspondencias")
 @Data
@@ -25,7 +27,7 @@ public class Correspondencia {
 
     // Fecha en la que se recibió la correspondencia
     @Column(name = "fecha_recepcion", nullable = false)
-    private java.time.LocalDate fechaRecepcion;
+    private LocalDate fechaRecepcion;
 
     // Estado de la correspondencia (ej: ENTREGADO, PENDIENTE)
     @Enumerated(EnumType.STRING)
