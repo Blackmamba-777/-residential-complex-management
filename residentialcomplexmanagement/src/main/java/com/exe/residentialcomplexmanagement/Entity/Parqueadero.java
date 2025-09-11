@@ -16,7 +16,7 @@ public class Parqueadero {
     // Identificador único del parqueadero
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true, updatable = false)
+    @Column(name = "idParqueadero", nullable = false, unique = true, updatable = false)
     private Long idParqueadero;
 
     // Número del parqueadero (ej: P1, P2)
