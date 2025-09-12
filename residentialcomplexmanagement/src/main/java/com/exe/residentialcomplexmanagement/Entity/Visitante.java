@@ -16,7 +16,7 @@ public class Visitante {
     // Identificador único del visitante
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true, updatable = false)
+    @Column(name = "idVisitante", nullable = false, unique = true, updatable = false)
     private Long idVisitantes;
 
     // Nombre completo del visitante
@@ -36,5 +36,20 @@ public class Visitante {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idApartamento", nullable = false)
     private Apartamento apartamento;
+
+    public void setMotivoVisita(String motivoVisita2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setMotivoVisita'");
+    }
+
+    public Long getId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+    }
+
+    public void setId(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    }
 
 }

@@ -5,12 +5,12 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Setter
 public class VisitanteDTO {
 
-    private Long id;
-    private String nombre;
-    private String telefono;
-    private ApartamentoDTO apartamento;
+    private Long id; // ID del visitante
+    private String nombre; // Nombre del visitante
+    private String telefono; // Teléfono del visitante
+    private String motivoVisita; // Motivo de la visita
+    private ApartamentoDTO apartamento; // Apartamento asociado al visitante
 }
