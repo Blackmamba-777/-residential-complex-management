@@ -20,8 +20,8 @@ public class Solicitud {
     // Identificador único de la solicitud
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private Long idSolicitudes;
+    @Column(name = "idSolicitud", nullable = false, unique = true, updatable = false)
+    private Long idSolicitud;
 
     // Tipo de solicitud (ej: mantenimiento, queja)
     @Column(name = "tipo", nullable = false, length = 100)
