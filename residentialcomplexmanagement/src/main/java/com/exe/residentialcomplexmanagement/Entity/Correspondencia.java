@@ -31,6 +31,7 @@ public class Correspondencia {
 
     // Estado de la correspondencia (ej: ENTREGADO, PENDIENTE)
     @Enumerated(EnumType.STRING)
+    @Column (name = "estado", nullable = false, length = 50)
     private EstadoCorrespondencia estado;
 
     // Relación muchos a uno con Apartamento (a qué apartamento va dirigida)

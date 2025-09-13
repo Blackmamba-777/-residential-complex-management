@@ -60,4 +60,5 @@ public class Apartamento {
     @OneToMany(mappedBy = "apartamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Solicitud> solicitudes;
 
+
 }
